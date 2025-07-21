@@ -12,5 +12,5 @@ steps:
   - name: a-test-step
     image: golang:1.16
     commands:
-      - echo "Testing 123 abc..."
+      - echo "Testing 1234 abc..."
       - ./executable
