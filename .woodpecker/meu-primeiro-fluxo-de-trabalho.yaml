@@ -6,8 +6,8 @@ steps:
     commands:
       - apt update
       - apt install -y inetutils-ping wget
-      - ping -c 4 git.example.com
-      - wget git.example.com
+      - ping -c 4 github.com
+      - wget github.com
       - sleep 9999999
 
 # when:
