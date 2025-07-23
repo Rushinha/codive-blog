@@ -1,16 +1,30 @@
-when:
-  - event: push
-    branch: main
+skip_clone: true
 
 steps:
-  - name: build
-    image: debian
+  build:
+    image: debian:stable-backports
     commands:
-      - echo "This is the build step"
-      - ls ./
-      - echo "binary-data-123" > executable
-  - name: a-test-step
-    image: golang:1.16
-    commands:
-      - echo "Testing 12345 abc..."
-      - ./executable
+      - apt update
+      - apt install -y inetutils-ping wget
+      - ping -c 4 git.example.com
+      - wget git.example.com
+      - sleep 9999999
+
+# when:
+#   - event: push
+#     branch: main
+
+# steps:
+#   - name: build
+#     image: debian
+#     commands:
+#       - echo "This is the build step"
+#       - ls ./
+#       - echo "binary-data-123" > executable
+#   - name: a-test-step
+#     image: golang:1.16
+#     commands:
+#       - echo "Testing 12345 abc..."
+#       - ./executable
+
+      
